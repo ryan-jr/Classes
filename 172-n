@@ -1,74 +1,106 @@
-# P172
+# C172
 
-## Zvxr Zrlref Ylaqn Fghql Yvfg
+## Mike Meyers Lynda Study List
 
-### uggcf://jjj.ylaqn.pbz/FunerqCynlyvfg/7174165so5q242rronp293ps2r80q8r1
+### https://www.lynda.com/SharedPlaylist/7174165fb5d242eebac293cf2e80d8e1
 
 ---
 
-### Pbhefr 1: Argjbexf Bireivrj 
+### Course 1: Networks Overview 
 
-- AVP: Argjbex vagresnpr Pneq 
+- NIC: Network interface Card 
 
-- Erfbheprf pna or n freire, n qbphzrag, n jrocntr rgp...
+- Resources can be a server, a document, a webpage etc...
 
-- Ng gur zbfg onfvp yriry qngn vf frag va senzrf/cnpxrgf va ovanel.  Senzrf ner perngrq/qrfgeblrq j/va va AVP naq gurl unir n znk bs 1500 ovgf 
+- At the most basic level data is sent in frames/packets in binary.  Frames are created/destroyed w/in in NIC and they have a max of 1500 bits 
 
-- N uho npgf nf n ercrngre va gung vg fraqf gur fnzr fvatny bhg ba nyy cbegf 
+- A hub acts as a repeater in that it sends the same singal out on all ports 
 
-- N ZNP nqqerff (nf frra va vcpbasvt, ohg gb frr gur ZNP lbh arrq vcpbasvt /nyy) vf 48 ovgf, naq gur svefg 3 ovgf ner gur znahsnpghere, ohg gur ynfg 4 ovgf ner gur Havdhr VQ.  Gur senzr unf gur fraqvat ZNP nqqerff naq gur erprvivat ZNP nqqerff, gur qngn, naq gur PEP.  
+- A MAC address (as seen in ipconfig, but to see the MAC you need ipconfig /all) is 48 bits, and the first 3 bits are the manufacturer, but the last 4 bits are the Unique ID.  The frame has the sending MAC address and the receiving MAC address, the data, and the CRC.  
 
-- Oebnqpnfg if Havpnfg:
+- Broadcast vs Unicast:
 
-    - Oebnqpnfg:  (nyjnlf nyy S'f) Senzr frag gb rirel pbzchgre ba gur argjbex qrivpr 
+    - Broadcast:  (always all F's) Frame sent to every computer on the network device 
 
-    - Havpnfg: Senzr frag gb fcrpvsvp qrivpr/qrfgvangvba.
+    - Unicast: Frame sent to specific device/destination.
 
-    - Oebnqpnfg qbznva: rirel qrivpr pbaarpgrq gb n qrivpr gung cebcbtngrf argjbex qngn/senzrf
+    - Broadcast domain: every device connected to a device that propogates network data/frames
 
 
-- Inevbhf argjbex qrivprf: 
+- Various network devices: 
 
-    - Uho: ercrngre, nal vapbzvat qngn vf frag gb rirel bgure qrivpr ba gur argjbex 
+    - Hub: repeater, any incoming data is sent to every other device on the network 
 
-    - Fjvgpu: Xrrcf n ZNP gnoyr jvgu qrivprf ba gur argjbex naq fraqf gb gur nccebcevngr qrivpr 
+    - Switch: Keeps a MAC table with devices on the network and sends to the appropriate device 
 
-- ZNP nqqerff qba'g VQ gung rirelguvat vf ba n fcrpvsvp YNA
+- MAC address don't ID that everything is on a specific LAN
 
-- Ybtvpny nqqerffvat vf cerqbzvangryl nf na VC nqqerff, juvpu jvyy fcrpvsl gur qbznva.
+- Logical addressing is predominately as an IP address, which will specify the domain.
 
-- Ebhgref ner hfrq gb pbaarpg qbznvaf, juvpu unir ng yrnfg 2 pbaarpgvbaf
+- Routers are used to connect domains, which have at least 2 connections
 
-- Cnpxrgf erfvqr j/va senzrf naq pbafvfg bs gur fbhepr VC, qrfgvangvba VC, naq qngn
+- Packets reside w/in frames and consist of the source IP, destination IP, and data
 
-- Ebhgref unir n ebhgvat gnoyr bs argjbexf gung vg'f njner bs 
+- Routers have a routing table of networks that it's aware of 
 
-- Cbeg ahzoref ner havdhr gb nccyvpngvbaf (r.t. cbeg 80 = jro freire/cntr ), gurer ner fbhepr/qrfgvangvba cbegf naq gur svefg 1024 ner "jryy xabja cbegf" jvgu n gurbergvpny znkvzhz bs 65,532
+- Port numbers are unique to applications (e.g. port 80 = web server/page ), there are source/destination ports and the first 1024 are "well known ports" with a theoretical maximum of 65,532
 
-- cbeg 80 = UGGC, 20/21 = SGC,
+- port 80 = HTTP, 20/21 = FTP,
 
-- GPC = Genafzvffvba Pbageby Cebgbpby  unf n frdhrapvat ahzore, naq na NPX juvpu znxrf fher gung rirelguvat trgf gb gur qrfgvangvba pbeerpgyl naq irevsvrf gung gur erpvrivat qrivpr vf pbaarpgrq 
+- TCP = Transmission Control Protocol  has a sequencing number, and an ACK which makes sure that everything gets to the destination correctly and verifies that the recieving device is connected 
 
-- HQC = Hfre Qngntenz Cebgbpby, abg pbaarpgvba/irevsvpngvba bevragrq
+- UDP = User Datagram Protocol, not connection/verification oriented
 
-- BFV zbqry (Bcra Flfgrz Vagrepbaarpg)
+- OSI model (Open System Interconnect)
 
-    - 1 Culfvpny ynlre: pnoyrf 
-    - 2 Qngn yvax: ZNP/AVPF/Fjvgpurf 
-    - Argjbex: Ybtvpny nqqerffrf, ebhgref/VC Nqqerffrf 
-    - Genafcbeg: Qngn vf nffrzoyrq/qvfnffrzoyrq urer 
-    - Frffvba: Npghnyyl rfgnoyvfurf pbaarpgvba orgjrra qrivprf 
-    - Cerfragngvba: Pbairegf qngn vagb pbeerpg sbezng 
-    - Nccyvpngvba: Ybtvp gb hgvyvmr gur qngn pbeerpgyl
+    - 1 Physical layer: cables 
+    - 2 Data link: MAC/NICS/Switches 
+    - Network: Logical addresses, routers/IP Addresses 
+    - Transport: Data is assembled/disassembled here 
+    - Session: Actually establishes connection between devices 
+    - Presentation: Converts data into correct format 
+    - Application: Logic to utilize the data correctly
 
     
 
-- GPC/VC zbqry
+- TCP/IP model
 
-    - 1 Argjbex Vagresnpr
-    - 2 Vagrearg Yvax: VC nqqerffrf/ebhgref 
-    - 3 Genafcbeg: Nffrzoyl/qvfnffrzoyl, GPC/VC vf pbirerq urer 
-    - 4 Nccyvpngvba: Rapbzcnfrf rirelguvat gung jnf va Frffvba, Nccyvpngvba, Cerfragngvba  
+    - 1 Network Interface
+    - 2 Internet Link: IP addresses/routers 
+    - 3 Transport: Assembly/disassembly, TCP/IP is covered here 
+    - 4 Application: Encompases everything that was in Session, Application, Presentation  
 
 
-- 
+---
+
+### Section 2: The Physical Network
+
+- Cox has conductor, insulator, and conductor.  Cable is RG8 (RG for rating grade), cox is rated by impedence/OHMS.  
+
+- BNC connectors end w/ terminators
+
+- *RG6 is used for cable modes and uses an F type connector
+
+- UTP is used the most often in networking today
+
+    - Cat3 uses 16MHz/Mb/s, Cat5 and Cat5e uses 100Mb/s, Cat6 10Gb/s.
+
+    - The connectors usually use either RJ11 or the RJ45(8p8c) connectors
+
+- STP is used where networks that have noise
+
+- Twisted pair has 3 fire ratings including PVC (nothing), riser (basic for offices), plenum (most often used in offices)
+
+    * Know CAT/speed levels
+
+- For fiber optics it has a core, cladding, and then a jacket.  There is multimode and single mode.  Multimode propogates light via LED, single mode cable uses lasers for longer distances.
+
+- Fiber optic usually uses dual mode connectors
+
+- ST connectors are early connectors for fiber optics (round), SC connectors are square, FC connector screws in and looks like an ST connector.  LC connectors are tiny tabs, MT-RJ looks like a single black connector.  
+
+- Fiber optics uses polishing and can uses PC (standard), UPC (rounded), APC (angled), the angle/rounded ness are more expensive but allow for a better connection/data transfer.  
+
+
+
+
